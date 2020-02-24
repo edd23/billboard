@@ -1,0 +1,13 @@
+<h1>Songs#show</h1>
+
+<p>Name: <%= @song.name %></p>
+<p>Body: <%= @song.body %></p>
+<p>this is from the artist: <%= @artist.name%></p>
+
+<% @song.billboards.each do |billboard| %>
+  <%= render 'billboards/billboard', {billboard: billboard } %>
+  <% end %>
+
+<%= link_to 'Edit Song', edit_artist_song_path([@artist, @song]) %>
+<%= link_to 'Delete Song', [@artist, @song], method: :delete %>
+<%= link_to 'Back To Songs', artist_songs_path(@artist) %>
